@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using TestAuthentication.Data.Context;
@@ -41,11 +42,13 @@ namespace TestAuthentication
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-
             services
                 .AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-                //.AddControllersAsServices();  // tell asp.net to use LightInject to create controllers
+            //.AddControllersAsServices();  // tell asp.net to use LightInject to create controllers
+
+            services.AddDbContext<AuthenticationDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("AuthenticationConnection")));
 
             services.AddIdentity<ApplicationUser, ApplicationRole>(options =>
             {
@@ -58,7 +61,7 @@ namespace TestAuthentication
             .AddSignInManager<ApplicationSignInManager>()
             .AddDefaultTokenProviders();
 
-            services.AddScoped<UserStore<ApplicationUser, ApplicationRole, AuthenticationDbContext, int>,ApplicationUserStore>();
+            services.AddScoped<UserStore<ApplicationUser, ApplicationRole, AuthenticationDbContext, int>, ApplicationUserStore>();
             services.AddScoped<UserManager<ApplicationUser>, ApplicationUserManager>();
             services.AddScoped<SignInManager<ApplicationUser>, ApplicationSignInManager>();
             services.AddScoped<ApplicationUserStore>();
