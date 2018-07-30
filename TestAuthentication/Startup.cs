@@ -25,7 +25,7 @@ namespace TestAuthentication
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            var containerOptions = new ContainerOptions { EnablePropertyInjection = false };
+            var containerOptions = new ContainerOptions { EnablePropertyInjection = true };
             Container = new ServiceContainer(containerOptions);
         }
 
@@ -60,19 +60,20 @@ namespace TestAuthentication
             .AddUserManager<ApplicationUserManager>()
             .AddSignInManager<ApplicationSignInManager>()
             .AddDefaultTokenProviders();
+            Container.RegisterAssembly(typeof(ApplicationUserManager).Assembly);
 
             services.AddScoped<UserStore<ApplicationUser, ApplicationRole, AuthenticationDbContext, int>, ApplicationUserStore>();
             services.AddScoped<UserManager<ApplicationUser>, ApplicationUserManager>();
             services.AddScoped<SignInManager<ApplicationUser>, ApplicationSignInManager>();
             services.AddScoped<ApplicationUserStore>();
-            services.AddScoped<ApplicationUserManager>();
-            services.AddScoped<ApplicationSignInManager>();
 
             services.AddRouting();
 
             // use lightinject to instantiate controllers
             var serviceProvider = Container.CreateServiceProvider(services);
-            //var userStore = serviceProvider.GetRequiredService<IUserStore<ApplicationUser>>(); // error
+            //var userStore = serviceProvider.GetRequiredService<ApplicationUserManager>(); // error
+            //var serviceProvider = services.BuildServiceProvider();
+            var userStore = serviceProvider.GetRequiredService<ApplicationSignInManager>();
             return serviceProvider;
         }
 
