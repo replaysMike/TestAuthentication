@@ -1,0 +1,11 @@
+/Users/bernhardrichter/GitHub/TestAuthentication/TestAuthentication.Data/bin/Debug/netcoreapp2.2/TestAuthentication.Data.deps.json
+/Users/bernhardrichter/GitHub/TestAuthentication/TestAuthentication.Data/bin/Debug/netcoreapp2.2/TestAuthentication.Data.runtimeconfig.json
+/Users/bernhardrichter/GitHub/TestAuthentication/TestAuthentication.Data/bin/Debug/netcoreapp2.2/TestAuthentication.Data.runtimeconfig.dev.json
+/Users/bernhardrichter/GitHub/TestAuthentication/TestAuthentication.Data/bin/Debug/netcoreapp2.2/TestAuthentication.Data.dll
+/Users/bernhardrichter/GitHub/TestAuthentication/TestAuthentication.Data/bin/Debug/netcoreapp2.2/TestAuthentication.Data.pdb
+/Users/bernhardrichter/GitHub/TestAuthentication/TestAuthentication.Data/obj/Debug/netcoreapp2.2/TestAuthentication.Data.csprojAssemblyReference.cache
+/Users/bernhardrichter/GitHub/TestAuthentication/TestAuthentication.Data/obj/Debug/netcoreapp2.2/TestAuthentication.Data.csproj.CoreCompileInputs.cache
+/Users/bernhardrichter/GitHub/TestAuthentication/TestAuthentication.Data/obj/Debug/netcoreapp2.2/TestAuthentication.Data.AssemblyInfoInputs.cache
+/Users/bernhardrichter/GitHub/TestAuthentication/TestAuthentication.Data/obj/Debug/netcoreapp2.2/TestAuthentication.Data.AssemblyInfo.cs
+/Users/bernhardrichter/GitHub/TestAuthentication/TestAuthentication.Data/obj/Debug/netcoreapp2.2/TestAuthentication.Data.dll
+/Users/bernhardrichter/GitHub/TestAuthentication/TestAuthentication.Data/obj/Debug/netcoreapp2.2/TestAuthentication.Data.pdb

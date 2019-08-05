@@ -33,7 +33,7 @@ namespace TestAuthentication
         public ServiceContainer Container { get; set; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public IServiceProvider ConfigureServices(IServiceCollection services)
+        public void ConfigureServices(IServiceCollection services)
         {
             services.Configure<CookiePolicyOptions>(options =>
             {
@@ -60,7 +60,7 @@ namespace TestAuthentication
             .AddUserManager<ApplicationUserManager>()
             .AddSignInManager<ApplicationSignInManager>()
             .AddDefaultTokenProviders();
-            Container.RegisterAssembly(typeof(ApplicationUserManager).Assembly);
+
 
             services.AddScoped<UserStore<ApplicationUser, ApplicationRole, AuthenticationDbContext, int>, ApplicationUserStore>();
             services.AddScoped<UserManager<ApplicationUser>, ApplicationUserManager>();
@@ -69,12 +69,17 @@ namespace TestAuthentication
 
             services.AddRouting();
 
-            // use lightinject to instantiate controllers
-            var serviceProvider = Container.CreateServiceProvider(services);
-            //var userStore = serviceProvider.GetRequiredService<ApplicationUserManager>(); // error
-            //var serviceProvider = services.BuildServiceProvider();
-            var userStore = serviceProvider.GetRequiredService<ApplicationSignInManager>();
-            return serviceProvider;
+            // // use lightinject to instantiate controllers
+            // var serviceProvider = Container.CreateServiceProvider(services);
+            // //var userStore = serviceProvider.GetRequiredService<ApplicationUserManager>(); // error
+            // //var serviceProvider = services.BuildServiceProvider();
+            // var userStore = serviceProvider.GetRequiredService<ApplicationSignInManager>();
+
+        }
+
+        public void ConfigureContainer(IServiceContainer serviceContainer)
+        {
+            serviceContainer.RegisterAssembly(typeof(ApplicationUserManager).Assembly);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
