@@ -13,7 +13,7 @@ namespace TestAuthentication.Data.Context
         public string ConnectionString { get; set; }
 
 
-        internal AuthenticationDbContext(DbContextOptions<AuthenticationDbContext> options)
+        public AuthenticationDbContext(DbContextOptions<AuthenticationDbContext> options)
             : base(options)
         {
             /*this is used for the designtimefactory, when running migrations*/
