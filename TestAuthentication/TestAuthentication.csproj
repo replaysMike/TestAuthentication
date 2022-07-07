@@ -10,7 +10,7 @@
   <ItemGroup>
     <PackageReference Include="LightInject" Version="5.1.5" />
     <PackageReference Include="LightInject.Microsoft.DependencyInjection" Version="2.0.7" />
-    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.15" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="0.19.1801023" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
   </ItemGroup>
